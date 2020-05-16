@@ -28,7 +28,7 @@ var ReturnValue = splitIntoArray(input).map(FindShiftedIndex).map(getNewLeter);
 var DecodeReturnValue =splitIntoArray(input).map(DeShiftedIndex).map(getNewLeter);
 
 //console.log('return value: '+ReturnValue.join(''));
-console.log('decoded return value: '+DecodeReturnValue.join(''));
+//console.log('decoded return value: '+DecodeReturnValue.join(''));
 //console.log('FindShiftedIndex: '+FindShiftedIndex(',!'));
 
  
