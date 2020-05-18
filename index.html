@@ -13,8 +13,10 @@
 <form id="cesarForm">
     <label for="inputText">Input text:</label><br>
     <textarea id="inputText" rows="4" cols="50" placeholder="eu tu brut"></textarea> <br> 
-   <div class="buttonCont"> <input class='button' style="vertical-align:middle" type="buttonCode" onclick="getResult()" value="GO"></div>
-    
+   <div class="buttonCont"> <input class='button' style="vertical-align:middle" type="buttonCode" onclick="getResult()" value="GO">
+    <span class="tooltiptext" id="myTooltip">Copy to clipboard</span> 
+</div>
+   
     <input type="number" min='1' max='31' id='key' placeholder="the key">
     <div class="buttonCont"><input class='button' style="vertical-align:middle" type="buttonDecode" onclick="getResultDecode()" value="OG"></div>
 </form>
