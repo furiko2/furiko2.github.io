@@ -2,25 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width= auto, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width= device-width, initial-scale=1.0">
+    <title>C/D</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
 </head>
 <body>
     
 
+
 <form id="cesarForm">
     <label for="inputText">Input text:</label><br>
-    <textarea id="inputText" rows="4" cols="50"> </textarea> <br> 
-    <input type="button" onclick="" value="Submit">
-    
-    <input type="button" onclick="  ()" value="Submit">
+    <textarea id="inputText" rows="4" cols="50" placeholder="eu tu brut"></textarea> <br> 
+   <div class="buttonCont"> <input class='button' style="vertical-align:middle" type="buttonCode" onclick="getResult()" value="GO"></div>
+   
+    <input type="number" min='1' max='31' id='key' placeholder="the key">
+    <div class="buttonCont"><input class='button' style="vertical-align:middle" type="buttonDecode" onclick="getResultDecode()" value="OG"></div>
 </form>
 
-<script src="cesar.js">
-       
-      input = document.getElementById("inputText");
-      document.getElementById('inputText').value = DecodeReturnValue.join('');
 
-    </script>   
+
+
+<script type="text/javascript" src="/cesar.js" defer="defer"></script> 
+
 </body>
 </html>
