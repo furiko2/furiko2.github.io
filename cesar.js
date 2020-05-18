@@ -38,7 +38,19 @@ function getResult() {
   input = document.getElementById("inputText").value;
   var ReturnValue = splitIntoArray(input).map(FindShiftedIndex).map(getNewLeter);
   document.getElementById("inputText").value = ReturnValue.join('');
-  console.log('return value: ' + ReturnValue.join(''));
+  console.log('return value: ' + ReturnValue.join(''))
+  
+  var copyText = document.getElementById("inputText");
+  console.log('copyText: '+copyText);
+  /* Select the text field */
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+
+  /* Copy the text inside the text field */
+  document.execCommand("copy");
+
+  /* Alert the copied text */
+  alert("Copied the text: " + copyText.value);
 }
 
 
@@ -50,4 +62,8 @@ function getResultDecode() {
 
   document.getElementById("inputText").value = DecodeReturnValue.join('');
   console.log('return value: ' + DecodeReturnValue.join(''));
+
+
+
+
 }
