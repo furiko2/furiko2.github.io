@@ -60,6 +60,11 @@ function getResultDecode() {
   console.log('input: ' + input);
   input = document.getElementById("inputText").value;
   key = document.getElementById("key").value;
+if (key='the key') {alert('Key cannot be empty')};
+
+
+
+
   var DecodeReturnValue = splitIntoArray(input).map(DeShiftedIndex).map(getNewLeter);
 
   document.getElementById("inputText").value = DecodeReturnValue.join('');
