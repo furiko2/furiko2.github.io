@@ -1,11 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>test</title>
+    <link rel="stylesheet" href="/THREEjs/styles.css">
+
+
 </head>
+
 <body>
-    <div>this is a test</div>
+    <script src="/THREEjs/js/three.js"></script>
+
+    <script>
+        var scene = new THREE.Scene();
+        var camera = new THREE.PerspectiveCamera(80, window.innerWidth / window.innerHeight, 0.1, 1000);
+
+        var renderer = new THREE.WebGLRenderer();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+
+
+        var geometry = new THREE.IcosahedronGeometry();
+        var material = new THREE.MeshLambertMaterial();
+        var cube = new THREE.Mesh(geometry, material);
+        var cube2 = new THREE.Mesh(geometry, material);
+        scene.add(cube);
+        scene.add(cube2);
+        cube2.position.z = 0;
+
+
+
+
+
+        var frontSpot = new THREE.SpotLight(0xeeeece);
+        frontSpot.position.set(1, 1, 1);
+        scene.add(frontSpot);
+        var frontSpot2 = new THREE.SpotLight(0xddddce);
+        frontSpot2.position.set(-3, -1, -1);
+        scene.add(frontSpot2);
+
+
+
+        var rotSpeed = 0.09;
+        const a = 0.9;
+        const t = 1;
+        camera.position.set(0.4, 0.1, 4);
+
+
+        function animate() {
+            requestAnimationFrame(animate);
+            cube.rotation.x += 0.01;
+            cube.rotation.y += 0.01;
+            cube2.rotation.x += 0.02;
+            cube2.rotation.y += 0.02;
+            /* if (camera.position.z <= 6) {
+                 camera.position.z += 0.01;
+             }
+             */
+
+            var x = camera.position.x;
+            var y = camera.position.y;
+            var z = camera.position.z;
+/*
+            camera.position.x = (a * Math.cos(t)) / (Math.pow(Math.sin(t), 2) + 1);
+            camera.position.y = (a * Math.sin(t) * Math.cos(t)) / Math.pow(Math.sin(t), 2) + 1;
+*/
+             camera.position.x = x * Math.cos(rotSpeed) + y * Math.sinh(rotSpeed);
+             camera.position.y = y * Math.cosh(rotSpeed) - x * Math.sin(rotSpeed);
+            
+            // camera.lookAt(scene.position);
+            console.log(Math.cos(rotSpeed) + z * Math.sin(rotSpeed))
+            renderer.render(scene, camera);
+        }
+
+        animate();
+    </script>
 </body>
+
 </html>

@@ -1,0 +1,9 @@
+body {
+    margin: 0;
+    filter: hue-rotate(50deg);
+     
+}
+
+canvas {
+    display: block;
+}
