@@ -21,14 +21,18 @@
         renderer.setSize(window.innerWidth, window.innerHeight);
         document.body.appendChild(renderer.domElement);
 
-
+        const loader = new THREE.TextureLoader();
 
         var geometry = new THREE.IcosahedronGeometry();
-        var material = new THREE.MeshLambertMaterial();
+        var material = new THREE.MeshLambertMaterial({
+            map: loader.load('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT6m72WwFKOjEz_BNrVh0Z5rFpebwkVFQ5IDJMCqyPdrMEmYPet&usqp=CAU')
+        });
         var cube = new THREE.Mesh(geometry, material);
         var cube2 = new THREE.Mesh(geometry, material);
         scene.add(cube);
         scene.add(cube2);
+
+        cube.position.set(2,0.1,0.1);
         cube2.position.z = 0;
 
 
@@ -36,15 +40,15 @@
 
 
         var frontSpot = new THREE.SpotLight(0xeeeece);
-        frontSpot.position.set(1, 1, 1);
+        frontSpot.position.set(3, 1, 2);
         scene.add(frontSpot);
         var frontSpot2 = new THREE.SpotLight(0xddddce);
-        frontSpot2.position.set(-3, -1, -1);
+        frontSpot2.position.set(-3, -1, -2);
         scene.add(frontSpot2);
 
 
 
-        var rotSpeed = 0.09;
+        var rotSpeed = 0.05;
         const a = 0.9;
         const t = 1;
         camera.position.set(0.4, 0.1, 4);
@@ -61,16 +65,16 @@
              }
              */
 
-            var x = camera.position.x;
-            var y = camera.position.y;
-            var z = camera.position.z;
+            var x = cube.position.x;
+            var y = cube.position.y;
+            var z = cube.position.z;
 /*
             camera.position.x = (a * Math.cos(t)) / (Math.pow(Math.sin(t), 2) + 1);
             camera.position.y = (a * Math.sin(t) * Math.cos(t)) / Math.pow(Math.sin(t), 2) + 1;
 */
-             camera.position.x = x * Math.cos(rotSpeed) + y * Math.sinh(rotSpeed);
-             camera.position.y = y * Math.cosh(rotSpeed) - x * Math.sin(rotSpeed);
-            
+             cube.position.x = x * Math.cos(rotSpeed) + y * Math.sin(rotSpeed);
+             cube.position.y = y * Math.cos(rotSpeed) - x * Math.sin(rotSpeed);
+             cube.position.z = z * Math.random(); 
             // camera.lookAt(scene.position);
             console.log(Math.cos(rotSpeed) + z * Math.sin(rotSpeed))
             renderer.render(scene, camera);
