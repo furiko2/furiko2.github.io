@@ -6,8 +6,8 @@ const day = new Date().getDate();
 //const input= 'goor, qzckb... rcckb';
 var input = document.getElementById("inputText").value;
 
-var key;
-console.log('input from textarea: ' + input + key);
+var key ='🔑';
+console.log('input from textarea: ' + input +' key: '+ key+' Day: '+day);
 
 
 function FindShiftedIndex(input) {
@@ -28,20 +28,21 @@ function getNewLeter(input) {
 
 //var ReturnValue = splitIntoArray(input).map(FindShiftedIndex).map(getNewLeter);
 
-var DecodeReturnValue = splitIntoArray(input).map(DeShiftedIndex).map(getNewLeter);
+//var DecodeReturnValue = splitIntoArray(input).map(DeShiftedIndex).map(getNewLeter);
 
 //console.log('return value: '+ReturnValue.join(''));
 //console.log('decoded return value: '+DecodeReturnValue.join(''));
 //console.log('FindShiftedIndex: '+FindShiftedIndex(',!'));
 function getResult() {
   console.log('input: ' + input);
+  console.log('input day: ' + day);
   input = document.getElementById("inputText").value;
   var ReturnValue = splitIntoArray(input).map(FindShiftedIndex).map(getNewLeter);
   document.getElementById("inputText").value = ReturnValue.join('');
   console.log('return value: ' + ReturnValue.join(''))
-  
+
   var copyText = document.getElementById("inputText");
-  console.log('copyText: '+copyText);
+  console.log('copyText: ' + copyText);
   /* Select the text field */
   copyText.select();
   copyText.setSelectionRange(0, 99999); /*For mobile devices*/
@@ -50,7 +51,7 @@ function getResult() {
   document.execCommand("copy");
 
   /* Alert the copied text */
-  
+
   var tooltip = document.getElementById("myTooltip");
   tooltip.innerHTML = "Copied: " + copyText.value;
 }
@@ -58,17 +59,19 @@ function getResult() {
 
 function getResultDecode() {
   console.log('input: ' + input);
+  
   input = document.getElementById("inputText").value;
   key = document.getElementById("key").value;
-if (key='the key') {alert('Key cannot be empty')};
-
-
-
-
+  console.log('key value: ' + key);
+  
   var DecodeReturnValue = splitIntoArray(input).map(DeShiftedIndex).map(getNewLeter);
+   (key != '' ) ? (document.getElementById("inputText").value = DecodeReturnValue.join('')): (alert('🔑 cannot be empty'));
+   
 
-  document.getElementById("inputText").value = DecodeReturnValue.join('');
+  
   console.log('return value: ' + DecodeReturnValue.join(''));
+  
+  
 
 
 

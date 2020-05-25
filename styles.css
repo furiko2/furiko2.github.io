@@ -25,19 +25,8 @@
 }
 
 
-.buttonCont:hover .button{
-   
-    padding: 6px 10px;
-    opacity: 1;
-    transition-duration: 1s;
-    transform-style: preserve-3d;
-    transform: rotate3d(0, 1, 0,180deg);
-  
-}
 
-.buttonRev {
-    transform: rotateY(-280deg);
-}
+
 
 .textarea {
   width: auto;
@@ -68,8 +57,9 @@
   }
   
   #key {
-    width: 80px;
-    height: 30px;
+    width: 40px;
+    font-size: large;
+    margin-left: 20px
   }
   .buttonCont .tooltiptext::after {
     content: "";
